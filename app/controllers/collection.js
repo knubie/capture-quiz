@@ -2,8 +2,6 @@ export default Ember.Controller.extend({
   needs: "application",
   actions: {
     remove: function(photoId) {
-      console.log('photoId: ' + photoId);
-      console.log(this.get('model').get('id'));
       var store = this.store
         , collection = this.get('model');
       store.find('photo', photoId).then(function(photo) {

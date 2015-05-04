@@ -3,9 +3,6 @@ export default Ember.Controller.extend({
     openModal: function(photoId) {
     },
     addToCollection: function(collectionId, photoId) {
-      console.log('collectionId: ' + collectionId);
-      console.log('photoId: ' + photoId);
-      console.log(this.get('photos'));
       var store = this.store;
       store.find('collection', collectionId).then(function(collection) {
         store.find('photo', photoId).then(function(photo) {

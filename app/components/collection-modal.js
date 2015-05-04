@@ -11,14 +11,9 @@ export default Ember.Component.extend({
         this.send('addToCollection', collectionId, photoId);
       }
     }
-    //console.log(e.target);
-    //console.log($('input.new-collection').val());
   },
   actions: {
     addToCollection: function(collectionId, photoId) {
-      console.log('collectionId: ' + collectionId);
-      console.log('photoId: ' + photoId);
-      console.log(this.get('photos'));
       var store = this.get('targetObject.store');
       store.find('collection', collectionId).then(function(collection) {
         store.find('photo', photoId).then(function(photo) {

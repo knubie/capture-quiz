@@ -3,11 +3,6 @@ let Collection = DS.Model.extend({
   photos: DS.hasMany('photo')
 });
 
-Collection.reopenClass({
-  FIXTURES: [
-    { id: 1, name: 'collection 1' },
-    { id: 2, name: 'collection 2' }
-  ]
-});
+Collection.reopenClass({ FIXTURES: [] });
 
 export default Collection

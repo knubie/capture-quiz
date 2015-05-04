@@ -1,0 +1,4 @@
+Photo count: {{model.photos.length}}
+<button {{action 'deleteCollection'}} type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+{{render "photos" model.photos viewingCollection=true}}
+{{collection-modal collections=controllers.application.model}}

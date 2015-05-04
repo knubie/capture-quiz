@@ -10,7 +10,21 @@ Ember.MODEL_FACTORY_INJECTIONS = true;
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver: Resolver
+  Resolver: Resolver,
+  ApplicationAdapter: DS.FixtureAdapter
+});
+
+DS.FixtureAdapter.reopen({
+  queryFixtures: function(records, query, type) {        
+    return records.filter(function(record) {
+      for(var key in query) {
+        if (!query.hasOwnProperty(key)) { continue; }
+        var value = query[key];
+        if (record[key] !== value) { return false; }
+      }
+      return true;
+    });
+  }
 });
 
 loadInitializers(App, config.modulePrefix);

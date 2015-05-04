@@ -1,0 +1,12 @@
+<ul class="photos">
+  {{#each photo in model}}
+    <li data-photo-id="{{photo.id}}" style="display: inline-block">
+      <img src="{{photo.path}}" alt=""/ width=200 height=200>
+      <span class="add-to-collection-link btn btn-default">add to collection</span>
+      {{#if view.viewingCollection}}
+        <span class="remove-from-collection-link btn btn-default">remove</span>
+      {{/if}}
+    </li>
+  {{/each}}
+</ul>
+
